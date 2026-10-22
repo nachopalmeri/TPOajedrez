@@ -1,40 +1,36 @@
-# Chess TPO — Software Engineering
+# TPO de Ajedrez — Ingeniería de Software
 
-A small, testable chess implementation built for the Software Engineering course project. The code separates game rules from the console adapter, supports an 8×8 classic setup, validates turns and legal moves, records captures, and detects check. Checkmate is implemented as an additional feature.
+Implementación de ajedrez desarrollada para el trabajo práctico de Ingeniería de Software. El código separa las reglas del juego de la consola, utiliza una configuración clásica de 8×8, valida turnos y movimientos, registra capturas y detecta jaque. También implementa jaque mate como funcionalidad adicional.
 
-## Run
+## Ejecutar
 
-Requires Python 3.10 or newer. The project uses only the Python standard library.
+Requiere Python 3.10 o posterior. Usa únicamente la biblioteca estándar de Python.
 
     python jugar.py
     python -m unittest -v
 
-The test suite covers piece movement, blocked paths, turns, captures, check, checkmate, console behavior, configurable board size, and registering a new piece. It currently contains 37 tests.
+La suite contiene 37 pruebas sobre movimientos, caminos bloqueados, turnos, capturas, jaque, jaque mate, consola, dimensiones configurables y registro de piezas nuevas.
 
-## Project map
+## Estructura
 
-- ajedrez/nucleo/: board, pieces, movement rules, and match state.
-- ajedrez/adaptadores/consola.py: terminal input/output.
-- tests/: tests that run without a UI or external service.
-- docs/diagrama_clases.svg: generated UML view of the current code.
-- docs/decisiones-de-diseno.docx: concise design rationale.
-- docs/alineacion-con-la-cursada.md: traceability to the assignment and class material.
-- docs/presentacion-tpo.pptx: project presentation.
+- ajedrez/nucleo/: tablero, piezas, movimientos y estado de la partida.
+- ajedrez/adaptadores/consola.py: entrada y salida por terminal.
+- tests/: pruebas que se ejecutan sin interfaz ni servicios externos.
+- docs/diagrama_clases.svg: vista UML generada desde el modelo actual.
+- docs/decisiones-de-diseno.docx: justificación de decisiones.
+- docs/alineacion-con-la-cursada.md: contraste con la consigna y el material de clase.
+- docs/presentacion-tpo.pptx: presentación del proyecto.
 
-## Scope
+## Alcance
 
-The assignment requires six chess pieces, an 8×8 board, alternating turns, captures, rejection of invalid moves, and check detection. This project also implements checkmate. Castling, en passant, promotion, draw rules, AI, undo/redo, and a graphical interface are outside the implemented scope; the assignment lists these as optional extensions.
+La consigna exige tablero de 8×8, seis tipos de piezas, turnos alternados, capturas, rechazo de jugadas inválidas y detección de jaque. Esta implementación también detecta jaque mate. Enroque, captura al paso, promoción, tablas, IA, deshacer/rehacer e interfaz gráfica son ampliaciones opcionales y no se presentan como funciones implementadas.
 
-The king cannot be captured. A game ends through checkmate, so the king remains on the board. This rule is covered by a regression test.
+El rey no se captura: el final se determina mediante jaque mate. Una prueba de regresión cubre esta regla.
 
-## Course alignment
+## Relación con la cursada
 
-The implementation reflects the course’s core/adapters separation, inward dependency direction, composition of movement rules, dependency injection at the match setup, and tests of the core without infrastructure. The assignment does not require specific design patterns; the choices are justified in the design note. See the traceability review.
+El diseño aplica separación entre núcleo y adaptadores, dirección de dependencias hacia el dominio, composición de reglas de movimiento, inyección de dependencias y pruebas del núcleo sin infraestructura. La consigna no exige patrones específicos; las decisiones se justifican según el problema que resuelven. El documento de alineación detalla las fuentes y los límites de la revisión.
 
-## Privacy and attribution
+## Copia pública
 
-This public copy omits personal names, group identifiers, private class recordings, transcripts, and teacher slide files. Add group details only in a private submission copy if the course requires them.
-
-## Status
-
-This is a student project and a public study artifact. Its course alignment was checked against the available official assignment and class materials. See the traceability review for source coverage and limitations.
+Esta copia no incluye nombres personales, número de grupo, grabaciones privadas, transcripciones ni archivos de diapositivas de la cátedra. Si se usa para entregar, el grupo puede incorporar sus datos reales en una copia privada, de acuerdo con el requisito de 3 a 5 integrantes.

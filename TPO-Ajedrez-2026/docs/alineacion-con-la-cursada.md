@@ -1,67 +1,67 @@
-# Course alignment and source review
+# Revisión de alineación con la cursada
 
-## Conclusion
+## Conclusión
 
-The project follows the official TPO’s required scope and the engineering guidance visible in the available course material. The clearest correctness defect found during review was that a rook could capture the opposing king. That behavior has been blocked in legal-move generation, move execution, and checkmate move search, and is covered by a regression test. The suite now has 37 passing tests.
+El proyecto cumple el alcance obligatorio del TPO y las pautas de ingeniería que aparecen en el material disponible. El defecto funcional más claro era que una torre podía capturar al rey rival. Se bloqueó esa jugada al generar movimientos legales, al ejecutar un movimiento y al buscar movimientos disponibles para detectar jaque mate. Una prueba de regresión cubre el caso. La suite tiene 37 pruebas aprobadas.
 
-The project uses course concepts as design tools. The assignment does not mandate particular patterns, and the class material cautions against adding a pattern without a reason. This review therefore checks behavior and justification instead of treating a named pattern as a requirement.
+La consigna no impone patrones de diseño concretos; el material de clase también advierte que no conviene forzar patrones sin necesidad. Por eso, la revisión contrasta comportamientos y justificaciones con la cursada, sin convertir los nombres de patrones en requisitos.
 
-## Official assignment
+## Consigna oficial
 
-Source: TPO_Ingenieria de Software_Dominio Ajedrez.docx (available in the course folder; not copied into this public repository).
+Fuente: TPO_Ingenieria de Software_Dominio Ajedrez.docx. Está en la carpeta de la materia y no se copia a este repositorio público.
 
-Required by the assignment:
+La consigna pide:
 
-- An 8×8 board and the six standard piece types with their movement rules.
-- Alternating turns, captures, rejection of invalid moves, and check detection.
-- A framework-independent core, unit tests that run without external infrastructure, and a UML diagram that matches the implementation.
-- A short design rationale that answers what the choice is, why it was made, and when it could fail or become a poor fit.
-- A group presentation and an individual defense. The group must have 3–5 members.
+- Tablero de 8×8 y los seis tipos de piezas con sus movimientos.
+- Turnos alternados, capturas, rechazo de movimientos inválidos y detección de jaque.
+- Núcleo independiente de frameworks e infraestructura, pruebas unitarias que puedan ejecutarse sin servicios externos y un UML coherente con la implementación.
+- Una justificación breve que explique qué decisión se tomó, por qué y en qué situación podría dejar de convenir.
+- Presentación grupal y defensa individual. El grupo debe tener entre 3 y 5 integrantes.
 
-Listed as optional: checkmate, castling, en passant, promotion, draws, AI, undo/redo, and a graphical interface beyond the minimal console. The implementation includes checkmate, but it does not claim the other optional rules.
+La consigna enumera como opcionales el jaque mate, el enroque, la captura al paso, la promoción, las tablas, la IA, deshacer/rehacer y una interfaz gráfica más allá de la consola mínima. El proyecto incluye jaque mate, pero no declara implementadas las demás extensiones.
 
-## Traceability to classes
+## Cruce con las clases
 
-The dates below refer to the available class decks/notes. The public repository does not redistribute course slides or transcripts; filenames and slide references are provided for traceability.
+Las fechas corresponden a las presentaciones y notas disponibles. El repositorio no redistribuye las diapositivas ni las transcripciones de la cátedra; se indican sus nombres y secciones para que puedan localizarse.
 
-- **6 Aug — Unit 1, “Ingeniería y Diseño,” slides 10–18.** The deck introduces core/adapters separation, dependency direction, hexagonal architecture, and testability. The project keeps game rules in ajedrez/nucleo/ and terminal interaction in ajedrez/adaptadores/consola.py.
-- **13 Aug — class notes, “Clase 2 13-08-26.”** The notes continue the architecture discussion. The implementation keeps I/O out of Partida, so tests can call rules directly.
-- **20 Aug — Unit 1, “SOLID, Dependency Injection y Composition,” slides 2, 9–10, 18.** The course discusses SOLID, constructor injection, composition, and choosing patterns only when they solve a real problem. Partida receives an optional Disposicion and CatalogoDePiezas; each Pieza composes movement behaviors. The catalog enables an added piece without changing the existing piece classes. These are design choices, not assignment-mandated patterns.
-- **27 Aug — Unit 1, “Patrones y Testing,” slides 12, 15–17.** Command/State are presented as tools, and undo is an optional chess extension. This implementation does not add undo solely to demonstrate a pattern.
-- **10 Sep — Unit 1, “Testing, TDD y TPO,” slides 5–9 and 15–20.** The course material supports testing the core without infrastructure, AAA/TDD, and testing chess rules such as rook movement. The king-capture regression was added test-first: it failed because a8 was returned as a legal rook destination, then passed after the rule was fixed.
-- **17 Sep — Unit 0.1, “Tipos de Arquitectura…,” slides 3 and 5–10; class note “Clase 6 17-09-2026.”** The available note records the instructor comparing UML with code and asking for tests by module. The included UML is generated from the current project classes and the test suite is organized by behavior. The recording/transcript coverage for that date is incomplete, so this statement is limited to the note and deck.
-- **15 Oct — Unit 5 AI bonus.** The available code is explicitly bonus material. AI is not a required core feature and is excluded from this repository; the assignment’s optional AI mention does not make that bonus mandatory.
+- **6 de agosto — Unidad 1, “Ingeniería y Diseño”, diapositivas 10–18.** Presenta separación entre núcleo y adaptadores, dirección de dependencias, arquitectura hexagonal y testabilidad. Las reglas están en ajedrez/nucleo/ y la interacción de terminal en ajedrez/adaptadores/consola.py.
+- **13 de agosto — nota “Clase 2 13-08-26”.** Continúa el análisis de arquitectura. Partida no lee ni imprime, por lo que las pruebas pueden invocar directamente las reglas.
+- **20 de agosto — Unidad 1, “SOLID, Dependency Injection y Composition”, diapositivas 2, 9–10 y 18.** Trata SOLID, inyección por constructor, composición y elección de patrones por necesidad. Partida recibe Disposicion y CatalogoDePiezas como dependencias opcionales; cada Pieza compone comportamientos de movimiento. El catálogo permite registrar una pieza nueva sin modificar las clases existentes. Son decisiones del diseño, no patrones obligatorios por la consigna.
+- **27 de agosto — Unidad 1, “Patrones y Testing”, diapositivas 12 y 15–17.** Command y State aparecen como herramientas, y deshacer como extensión opcional del ajedrez. No se agregan esos patrones solamente para demostrar que se conocen.
+- **10 de septiembre — Unidad 1, “Testing, TDD y TPO”, diapositivas 5–9 y 15–20.** El material respalda probar el núcleo sin infraestructura, el ciclo AAA/TDD y las pruebas de reglas de ajedrez, como el movimiento de la torre. La regresión de captura del rey se agregó primero como prueba: falló porque a8 aparecía como destino legal de la torre y pasó después de corregir la regla.
+- **17 de septiembre — Unidad 0.1, “Tipos de Arquitectura…”, diapositivas 3 y 5–10; nota “Clase 6 17-09-2026”.** La nota disponible registra que el profesor comparó UML y código y pidió probar por módulo. El diagrama UML incluido se genera desde las clases del proyecto y la suite se organiza por comportamiento. La cobertura de grabación/transcripción de esa fecha es incompleta; esta afirmación se limita a la nota y a la presentación.
+- **15 de octubre — Unidad 5, material bonus de IA.** El código disponible está presentado como material complementario. La IA no es una función obligatoria del núcleo y no se incluye en este repositorio. Que la consigna mencione IA como opción no convierte el bonus en requisito.
 
-The course material also mentions using a simulation/copy to check whether a move leaves the current player in check. Partida._deja_en_jaque copies the board, applies the proposed move to the copy, then checks the king’s safety. The course discussion is treated as support for the design, not as a requirement to use this exact implementation.
+El material de la cursada también explica simular una jugada para verificar si deja al rey en jaque. Partida._deja_en_jaque copia el tablero, aplica allí el movimiento tentativo y comprueba la seguridad del rey. La clase respalda el enfoque general; no se afirma que obligue a usar exactamente esta implementación.
 
-## Defect found and correction
+## Defecto corregido
 
-Before the fix, Partida.movimientos_legales could include a square occupied by the opposing king. Partida.mover then allowed the capture and removed the king, which contradicted the intended check/checkmate model.
+Antes de la corrección, Partida.movimientos_legales podía incluir una casilla ocupada por el rey rival. Partida.mover aceptaba esa captura y quitaba al rey del tablero, lo que rompía el modelo de jaque y jaque mate.
 
-The code now filters king captures from legal moves, excludes them when searching for any remaining move, and rejects direct attempts to execute one. A dedicated test asserts that the move is absent, execution raises MovimientoInvalido, the king remains on the board, and turn/history do not change. Checkmate continues to work through es_jaque_mate.
+Ahora el núcleo filtra la captura del rey de los movimientos legales, la excluye al buscar movimientos disponibles y rechaza el intento directo de ejecutarla. La prueba verifica que la jugada no se ofrece, que mover lanza MovimientoInvalido, que el rey sigue en el tablero y que ni el turno ni el historial cambian. El jaque mate se detecta mediante es_jaque_mate.
 
-Verification: python -m unittest -v — 37 tests pass on the reviewed copy.
+Verificación: python -m unittest -v — 37 pruebas aprobadas en la copia revisada.
 
-## Design choices worth defending
+## Decisiones para defender
 
-- **Core and console adapter:** keeps rules usable from tests or another interface. It becomes less useful if the application remains a tiny one-off console tool with no need for isolation.
-- **Movement composition:** each piece combines movement behaviors. It becomes harder to read if many pieces require unique interactions that cannot be expressed cleanly as composed rules.
-- **Destinations versus attacks:** pawn movement and pawn attacks differ, so the model exposes both. A future variant with unusual pawn rules may need a richer rules object.
-- **Piece catalog:** maps names to factories and supports extension. It becomes needless indirection if the game permanently supports only a fixed set and extension is not a real requirement.
-- **Injectable setup and board dimensions:** allow alternate positions and sizes, which also makes tests and the individual defense easier. They add cost if every game is guaranteed to use one fixed board and setup.
-- **Board-copy safety check:** checks a candidate move without corrupting the real state. It may become expensive if the game grows; an incremental attack model could then be justified.
-- **Immutable positions and pieces:** make value objects safer to share. They may be unnecessary if the model evolves toward frequent in-place edits or a different performance profile.
+- **Núcleo y adaptador de consola:** permite usar las reglas desde pruebas u otra interfaz. Aporta menos si el programa fuera una consola descartable sin necesidad de pruebas ni reutilización.
+- **Composición de movimientos:** combina comportamientos de movimiento. Se vuelve menos clara si aparecen muchas piezas con interacciones particulares que no pueden expresarse con esas reglas.
+- **Destinos y ataques:** los peones avanzan y capturan de formas distintas. Una variante con reglas de ataque más complejas podría requerir un modelo más expresivo.
+- **Catálogo de piezas:** registra fábricas y permite extensiones. Es indirección innecesaria si el juego siempre tendrá el mismo conjunto de piezas y nunca se extenderá.
+- **Configuración de disposición y tamaño:** facilita pruebas controladas y la defensa de extensibilidad. Agrega casos para validar si el tablero y la disposición fueran siempre fijos.
+- **Copia del tablero para validar:** evita alterar la partida real al simular una jugada. Puede tener costo si el tablero o la cantidad de validaciones crecieran mucho; una alternativa incremental debería justificarse con mediciones.
+- **Posiciones y piezas inmutables:** reduce cambios laterales inesperados. Puede ser incómodo si una variante necesita editar con frecuencia las propiedades internas de las piezas.
 
-The expanded what/why/when-break explanation is in decisiones-de-diseno.docx.
+La explicación completa en formato qué, por qué y cuándo dejaría de ser adecuada está en decisiones-de-diseno.docx.
 
-## Scope boundary and items not claimed
+## Límites de alcance
 
-There is no claim that castling, en passant, promotion, draw rules, AI, undo/redo, or a GUI are implemented. Their omission is consistent with the assignment’s optional list. The bonus AI code supplied with the class is not included in this project.
+No se afirma que estén implementados el enroque, la captura al paso, la promoción, las tablas, la IA, deshacer/rehacer o una interfaz gráfica. Su ausencia coincide con la lista de ampliaciones opcionales de la consigna. Tampoco se copia al repositorio el código bonus de IA de la materia.
 
-## Evidence limits
+## Límites de las fuentes
 
-The audit used the official assignment, available class decks, notes, source code, and tests in the local course folder. Some recordings did not have a corresponding transcript, and the available transcript for at least one class was incomplete or noisy. The review therefore cannot claim to have verified every spoken sentence from every recording. The class-date mapping above states only what could be tied to available notes/decks. The quoted prior audit itself was not found as a standalone file; the project and cited source materials were located independently.
+La revisión usó la consigna oficial, las presentaciones y notas disponibles, el código y las pruebas del proyecto. Algunas grabaciones no tenían transcripción correspondiente; además, al menos una transcripción disponible era parcial o ruidosa. Por eso no se afirma haber comprobado cada minuto de todas las grabaciones. El cruce de fechas indica únicamente lo que se pudo respaldar con las notas y presentaciones encontradas. El texto de la revisión previa que motivó esta búsqueda no apareció como archivo independiente; se localizaron el proyecto y sus fuentes por separado.
 
-## Public-copy boundary
+## Límites de la copia pública
 
-This repository excludes personal names, email addresses, group number, local Windows paths, course files, recordings, transcripts, and supplied bonus code. The official assignment requires group identity in the submission context; add the real group roster to a private course-submission copy after the group confirms it. No group member names are published here.
+El repositorio omite nombres personales, correos, número de grupo, rutas locales de Windows, archivos de la materia, grabaciones, transcripciones y código bonus provisto por la cátedra. La consigna exige identificar al grupo en el contexto de entrega; agreguen la nómina real en una copia privada después de confirmarla con todos sus integrantes. No se publican nombres en esta copia.

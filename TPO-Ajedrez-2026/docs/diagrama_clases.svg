@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1355 1381" width="1355" height="1381"><rect width="100%" height="100%" fill="#fff"/><defs>
 <marker id="flecha" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L11,5 L0,10" fill="none" stroke="#111111" stroke-width="1.3"/></marker>
-<marker id="herencia" markerWidth="16" markerHeight="14" refX="15" refY="7" orient="auto"><path d="M0,0 L15,7 L0,14 z" fill="#fff" stroke="#4A5568" stroke-width="1.3"/></marker>
+<marker id="herencia" markerWidth="16" markerHeight="14" refX="15" refY="7" orient="auto"><path d="M0,0 L15,7 L0,14 z" fill="#fff" stroke="#111111" stroke-width="1.3"/></marker>
 <marker id="composicion" markerWidth="20" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#111111"/></marker>
-<marker id="agregacion" markerWidth="20" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#182029"/></marker>
+<marker id="agregacion" markerWidth="20" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#111111"/></marker>
 </defs>
-<style>.m{font:12px Consolas,'Courier New',monospace;fill:#182029}.nom{font:bold 14px Arial,sans-serif;fill:#182029}
-.nomi{font:italic bold 14px Arial,sans-serif;fill:#182029}.est{font:italic 11px Arial,sans-serif;fill:#4A5568}
-.et{font:11px Arial,sans-serif;fill:#4A5568}.tit{font:bold 18px Arial,sans-serif;fill:#182029}.ley{font:12px Arial,sans-serif;fill:#4A5568}</style><text x="678" y="1336" text-anchor="middle" class="tit">TPO Ajedrez · Diagrama de clases</text><rect x="5" y="130" width="1340.2" height="1181" fill="none" stroke="#111111" stroke-width="1.5" stroke-dasharray="10 6" rx="10"/><line x1="247" y1="106" x2="560" y2="210" stroke="#111111" stroke-width="1.3" stroke-dasharray="6 4"  marker-end="url(#flecha)"/>
+<style>.m{font:12px Consolas,'Courier New',monospace;fill:#111111}.nom{font:bold 14px Arial,sans-serif;fill:#111111}
+.nomi{font:italic bold 14px Arial,sans-serif;fill:#111111}.est{font:italic 11px Arial,sans-serif;fill:#111111}
+.et{font:11px Arial,sans-serif;fill:#111111}.tit{font:bold 18px Arial,sans-serif;fill:#111111}.ley{font:12px Arial,sans-serif;fill:#111111}</style><text x="678" y="1336" text-anchor="middle" class="tit">TPO Ajedrez · Diagrama de clases</text><rect x="5" y="130" width="1340.2" height="1181" fill="none" stroke="#111111" stroke-width="1.5" stroke-dasharray="10 6" rx="10"/><line x1="247" y1="106" x2="560" y2="210" stroke="#111111" stroke-width="1.3" stroke-dasharray="6 4"  marker-end="url(#flecha)"/>
 <text x="409" y="153" class="et">usa</text>
 <line x1="850" y1="380" x2="936" y2="460" stroke="#111111" stroke-width="1.3" marker-start="url(#composicion)" marker-end="url(#flecha)"/>
 <text x="899" y="415" class="et">1</text>
@@ -41,7 +41,7 @@
 <text x="568" y="209" class="m">+ tablero: Tablero</text>
 <text x="568" y="226" class="m">+ turno: Color</text>
 <text x="568" y="243" class="m">+ historial: List[Jugada]</text>
-<line x1="560" y1="253" x2="895" y2="253" stroke="#182029"/>
+<line x1="560" y1="253" x2="895" y2="253" stroke="#111111"/>
 <text x="568" y="268" class="m">+ mover(desde, hasta): Jugada</text>
 <text x="568" y="285" class="m">+ movimientos_legales(desde): Set[Posicion]</text>
 <text x="568" y="302" class="m">+ esta_en_jaque(color): bool</text>
@@ -58,29 +58,29 @@
 <text x="1068" y="263" class="m">+ hasta: Posicion</text>
 <text x="1068" y="280" class="m">+ capturada: Pieza?</text>
 <text x="1068" y="297" class="m">+ da_jaque: bool</text>
-<line x1="1060" y1="307" x2="1210" y2="307" stroke="#182029"/>
+<line x1="1060" y1="307" x2="1210" y2="307" stroke="#111111"/>
 <rect x="1060" y="360" width="157" height="94" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="1139" y="376" text-anchor="middle" class="est">«exception»</text>
 <text x="1139" y="393" text-anchor="middle" class="nom">MovimientoInvalido</text>
 <line x1="1060" y1="404" x2="1217" y2="404" stroke="#111111"/>
-<line x1="1060" y1="429" x2="1217" y2="429" stroke="#182029"/>
+<line x1="1060" y1="429" x2="1217" y2="429" stroke="#111111"/>
 <rect x="60" y="20" width="187" height="111" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="153" y="36" text-anchor="middle" class="est">«adaptador»</text>
 <text x="153" y="53" text-anchor="middle" class="nom">consola</text>
 <line x1="60" y1="64" x2="247" y2="64" stroke="#111111"/>
-<line x1="60" y1="89" x2="247" y2="89" stroke="#182029"/>
+<line x1="60" y1="89" x2="247" y2="89" stroke="#111111"/>
 <text x="68" y="104" class="m">+ jugar(entrada, salida)</text>
 <text x="68" y="121" class="m">+ dibujar(partida): str</text>
 <rect x="60" y="430" width="202" height="94" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="161" y="446" text-anchor="middle" class="est">«abstract»</text>
 <text x="161" y="463" text-anchor="middle" class="nomi">Disposicion</text>
 <line x1="60" y1="474" x2="262" y2="474" stroke="#111111"/>
-<line x1="60" y1="499" x2="262" y2="499" stroke="#182029"/>
+<line x1="60" y1="499" x2="262" y2="499" stroke="#111111"/>
 <text x="68" y="514" class="m">+ armar(catalogo): Tablero</text>
 <rect x="20" y="600" width="202" height="77" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="121" y="616" text-anchor="middle" class="nom">DisposicionClasica</text>
 <line x1="20" y1="627" x2="222" y2="627" stroke="#111111"/>
-<line x1="20" y1="652" x2="222" y2="652" stroke="#182029"/>
+<line x1="20" y1="652" x2="222" y2="652" stroke="#111111"/>
 <text x="28" y="667" class="m">+ armar(catalogo): Tablero</text>
 <rect x="250" y="600" width="202" height="111" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="351" y="616" text-anchor="middle" class="nom">DisposicionLibre</text>
@@ -88,13 +88,13 @@
 <text x="258" y="642" class="m">+ filas: int</text>
 <text x="258" y="659" class="m">+ columnas: int</text>
 <text x="258" y="676" class="m">+ piezas: list</text>
-<line x1="250" y1="686" x2="452" y2="686" stroke="#182029"/>
+<line x1="250" y1="686" x2="452" y2="686" stroke="#111111"/>
 <text x="258" y="701" class="m">+ armar(catalogo): Tablero</text>
 <rect x="520" y="460" width="298" height="111" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="669" y="476" text-anchor="middle" class="nom">CatalogoDePiezas</text>
 <line x1="520" y1="487" x2="818" y2="487" stroke="#111111"/>
 <text x="528" y="502" class="m">- _fabricas: Dict[str, FabricaDePieza]</text>
-<line x1="520" y1="512" x2="818" y2="512" stroke="#182029"/>
+<line x1="520" y1="512" x2="818" y2="512" stroke="#111111"/>
 <text x="528" y="527" class="m">+ registrar(nombre, fabrica)</text>
 <text x="528" y="544" class="m">+ crear(nombre, color): Pieza</text>
 <text x="528" y="561" class="m">+ nombres(): List[str]</text>
@@ -104,7 +104,7 @@
 <text x="938" y="502" class="m">+ filas: int</text>
 <text x="938" y="519" class="m">+ columnas: int</text>
 <text x="938" y="536" class="m">- _casillas: Dict[Posicion, Pieza]</text>
-<line x1="930" y1="546" x2="1206" y2="546" stroke="#182029"/>
+<line x1="930" y1="546" x2="1206" y2="546" stroke="#111111"/>
 <text x="938" y="561" class="m">+ dentro(pos): bool</text>
 <text x="938" y="578" class="m">+ pieza_en(pos): Pieza?</text>
 <text x="938" y="595" class="m">+ esta_vacia(pos): bool</text>
@@ -123,7 +123,7 @@
 <text x="568" y="823" class="m">+ reglas: tuple[ReglaDeMovimiento]</text>
 <text x="568" y="840" class="m">+ simbolo: str</text>
 <text x="568" y="857" class="m">+ es_rey: bool</text>
-<line x1="560" y1="867" x2="873" y2="867" stroke="#182029"/>
+<line x1="560" y1="867" x2="873" y2="867" stroke="#111111"/>
 <text x="568" y="882" class="m">+ destinos(tablero, desde): Set[Posicion]</text>
 <text x="568" y="899" class="m">+ ataques(tablero, desde): Set[Posicion]</text>
 <rect x="1020" y="830" width="305" height="145" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
@@ -132,7 +132,7 @@
 <line x1="1020" y1="874" x2="1325" y2="874" stroke="#111111"/>
 <text x="1028" y="889" class="m">+ fila: int</text>
 <text x="1028" y="906" class="m">+ columna: int</text>
-<line x1="1020" y1="916" x2="1325" y2="916" stroke="#182029"/>
+<line x1="1020" y1="916" x2="1325" y2="916" stroke="#111111"/>
 <text x="1028" y="931" class="m">+ desplazar(d_fila, d_columna): Posicion</text>
 <text x="1028" y="948" class="m">+ desde_notacion(texto): Posicion</text>
 <text x="1028" y="965" class="m">+ notacion(): str</text>
@@ -142,33 +142,33 @@
 <line x1="1020" y1="1074" x2="1162" y2="1074" stroke="#111111"/>
 <text x="1028" y="1089" class="m">+ BLANCO</text>
 <text x="1028" y="1106" class="m">+ NEGRO</text>
-<line x1="1020" y1="1116" x2="1162" y2="1116" stroke="#182029"/>
+<line x1="1020" y1="1116" x2="1162" y2="1116" stroke="#111111"/>
 <text x="1028" y="1131" class="m">+ opuesto(): Color</text>
 <text x="1028" y="1148" class="m">+ piezas: str</text>
 <rect x="300" y="990" width="290" height="111" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="445" y="1006" text-anchor="middle" class="est">«abstract»</text>
 <text x="445" y="1023" text-anchor="middle" class="nomi">ReglaDeMovimiento</text>
 <line x1="300" y1="1034" x2="590" y2="1034" stroke="#111111"/>
-<line x1="300" y1="1059" x2="590" y2="1059" stroke="#182029"/>
+<line x1="300" y1="1059" x2="590" y2="1059" stroke="#111111"/>
 <text x="308" y="1074" class="m">+ destinos(tablero, desde, color): Set</text>
 <text x="308" y="1091" class="m">+ ataques(tablero, desde, color): Set</text>
 <rect x="60" y="1190" width="157" height="77" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="139" y="1206" text-anchor="middle" class="nom">Deslizante</text>
 <line x1="60" y1="1217" x2="217" y2="1217" stroke="#111111"/>
 <text x="68" y="1232" class="m">+ direcciones: tuple</text>
-<line x1="60" y1="1242" x2="217" y2="1242" stroke="#182029"/>
+<line x1="60" y1="1242" x2="217" y2="1242" stroke="#111111"/>
 <text x="68" y="1257" class="m">+ destinos(...)</text>
 <rect x="320" y="1190" width="120" height="77" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="380" y="1206" text-anchor="middle" class="nom">Salto</text>
 <line x1="320" y1="1217" x2="440" y2="1217" stroke="#111111"/>
 <text x="328" y="1232" class="m">+ saltos: tuple</text>
-<line x1="320" y1="1242" x2="440" y2="1242" stroke="#182029"/>
+<line x1="320" y1="1242" x2="440" y2="1242" stroke="#111111"/>
 <text x="328" y="1257" class="m">+ destinos(...)</text>
 <rect x="560" y="1190" width="202" height="111" fill="#FFFFFF" stroke="#111111" stroke-width="1.4"/>
 <text x="661" y="1206" text-anchor="middle" class="nom">AvancePeon</text>
 <line x1="560" y1="1217" x2="762" y2="1217" stroke="#111111"/>
 <text x="568" y="1232" class="m">+ fila_inicial_blanco: int</text>
 <text x="568" y="1249" class="m">+ fila_inicial_negro: int</text>
-<line x1="560" y1="1259" x2="762" y2="1259" stroke="#182029"/>
+<line x1="560" y1="1259" x2="762" y2="1259" stroke="#111111"/>
 <text x="568" y="1274" class="m">+ destinos(...)</text>
 <text x="568" y="1291" class="m">+ ataques(...)</text><text x="10" y="1361" class="ley">Recuadro punteado = núcleo (ajedrez/nucleo): no importa nada de afuera. La consola (ajedrez/adaptadores) depende del núcleo y nunca al revés.</text></svg>

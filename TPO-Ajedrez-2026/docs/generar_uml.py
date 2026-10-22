@@ -87,7 +87,7 @@ def svg_clase(nombre):
         vis = "-" if a.startswith("-") else "+"
         partes.append(f'<text x="{x + 8}" y="{y1 + 15 + i * ALTO_LINEA}" class="m">{vis} {escape(a.lstrip("-"))}</text>')
     y2 = y1 + max(1, len(attrs)) * ALTO_LINEA + 8
-    partes.append(f'<line x1="{x}" y1="{y2}" x2="{x + w:.0f}" y2="{y2}" stroke="#182029"/>')
+    partes.append(f'<line x1="{x}" y1="{y2}" x2="{x + w:.0f}" y2="{y2}" stroke="#111111"/>')
     for i, m in enumerate(mets):
         vis = "-" if m.startswith("-") else "+"
         partes.append(f'<text x="{x + 8}" y="{y2 + 15 + i * ALTO_LINEA}" class="m">{vis} {escape(m.lstrip("-"))}</text>')
@@ -131,13 +131,13 @@ def generar():
     alto = max(caja(n)[1] + caja(n)[3] for n in CLASES) + 80
     defs = """<defs>
 <marker id="flecha" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L11,5 L0,10" fill="none" stroke="#111111" stroke-width="1.3"/></marker>
-<marker id="herencia" markerWidth="16" markerHeight="14" refX="15" refY="7" orient="auto"><path d="M0,0 L15,7 L0,14 z" fill="#fff" stroke="#4A5568" stroke-width="1.3"/></marker>
+<marker id="herencia" markerWidth="16" markerHeight="14" refX="15" refY="7" orient="auto"><path d="M0,0 L15,7 L0,14 z" fill="#fff" stroke="#111111" stroke-width="1.3"/></marker>
 <marker id="composicion" markerWidth="20" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#111111"/></marker>
-<marker id="agregacion" markerWidth="20" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#182029"/></marker>
+<marker id="agregacion" markerWidth="20" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#111111"/></marker>
 </defs>
-<style>.m{font:12px Consolas,'Courier New',monospace;fill:#182029}.nom{font:bold 14px Arial,sans-serif;fill:#182029}
-.nomi{font:italic bold 14px Arial,sans-serif;fill:#182029}.est{font:italic 11px Arial,sans-serif;fill:#4A5568}
-.et{font:11px Arial,sans-serif;fill:#4A5568}.tit{font:bold 18px Arial,sans-serif;fill:#182029}.ley{font:12px Arial,sans-serif;fill:#4A5568}</style>"""
+<style>.m{font:12px Consolas,'Courier New',monospace;fill:#111111}.nom{font:bold 14px Arial,sans-serif;fill:#111111}
+.nomi{font:italic bold 14px Arial,sans-serif;fill:#111111}.est{font:italic 11px Arial,sans-serif;fill:#111111}
+.et{font:11px Arial,sans-serif;fill:#111111}.tit{font:bold 18px Arial,sans-serif;fill:#111111}.ley{font:12px Arial,sans-serif;fill:#111111}</style>"""
     cuerpo = [svg_relacion(*r) for r in RELACIONES] + [svg_clase(n) for n in CLASES]
     nucleo = '<rect x="5" y="{0}" width="{1}" height="{2}" fill="none" stroke="#111111" stroke-width="1.5" stroke-dasharray="10 6" rx="10"/>'.format(DESPLAZAMIENTO_NUCLEO, ancho - 15, alto - DESPLAZAMIENTO_NUCLEO - 70)
     leyenda = (f'<text x="10" y="{alto - 20}" class="ley">Recuadro punteado = núcleo (ajedrez/nucleo): no importa nada de afuera. '
@@ -147,7 +147,7 @@ def generar():
            f'<text x="{ancho / 2:.0f}" y="{alto - 45}" text-anchor="middle" class="tit">TPO Ajedrez · Diagrama de clases</text>'
            f'{nucleo}' + "\n".join(cuerpo) + leyenda + "</svg>")
     salida = Path(__file__).with_name("diagrama_clases.svg")
-    salida.write_text(svg, encoding="utf-8")
+    salida.write_bytes(("\n".join(line.rstrip() for line in svg.splitlines()) + "\n").encode("utf-8"))
     print("generado", salida)
 
 

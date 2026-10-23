@@ -16,7 +16,7 @@ La suite contiene 37 pruebas sobre movimientos, caminos bloqueados, turnos, capt
 - ajedrez/nucleo/: tablero, piezas, movimientos y estado de la partida.
 - ajedrez/adaptadores/consola.py: entrada y salida por terminal.
 - tests/: pruebas que se ejecutan sin interfaz ni servicios externos.
-- docs/diagrama_clases.svg: vista UML generada desde el modelo actual.
+- docs/diagrama_clases.svg: vista UML generada desde una definición de clases y relaciones mantenida en `docs/generar_uml.py` y revisada contra el código.
 - docs/decisiones-de-diseno.docx: justificación de decisiones.
 - docs/alineacion-con-la-cursada.md: contraste con la consigna y el material de clase.
 - docs/presentacion-tpo.pptx: presentación del proyecto.

@@ -34,6 +34,40 @@ Las fechas corresponden a las presentaciones y notas disponibles. El repositorio
 
 El material de la cursada también explica simular una jugada para verificar si deja al rey en jaque. Partida._deja_en_jaque copia el tablero, aplica allí el movimiento tentativo y comprueba la seguridad del rey. La clase respalda el enfoque general; no se afirma que obligue a usar exactamente esta implementación.
 
+## Unidades 5 y 6: riesgos, métricas e integridad
+
+Las presentaciones de Gobernanza de IT (Unidad 5, diapositivas 19 y 21–22) y Auditoría, métricas, KPIs, ética e integridad (Unidad 6, diapositivas 13 y 24–25) proponen ejercicios aplicados al TPO. El alcance de esta sección es responderlos para la defensa; no agrega requisitos funcionales al juego.
+
+### Registro inicial de riesgos
+
+Las probabilidades e impactos son estimaciones cualitativas para priorizar el trabajo del grupo, no resultados de una auditoría formal. En la lista, P significa probabilidad e I, impacto. Los responsables se expresan por rol para que el grupo los asigne.
+
+- **Reglas de ajedrez mal implementadas.** Probabilidad media, impacto alto. Mitigar con pruebas vinculadas a cada requisito obligatorio y revisión de los casos límite. Responsable propuesto: quien mantiene las pruebas del núcleo.
+- **Pruebas débiles o modificadas para ocultar fallas.** Probabilidad media, impacto alto. Mitigar con revisión por otro integrante y conservando aserciones que comprueben el resultado, no solo que el código se ejecute. Responsable: quien revisa cada cambio.
+- **Pérdida del código o integración tardía.** Probabilidad baja, impacto alto. Mitigar con el repositorio remoto y una ejecución de la suite antes de entregar. Responsable: quien integra el trabajo.
+- **Conocimiento concentrado en un integrante.** Probabilidad media, impacto medio. Mitigar con revisión compartida y una explicación del núcleo que pueda dar más de un integrante. Responsable: el grupo.
+- **Exposición de una clave si se incorpora la IA opcional.** En la versión actual no hay integración de IA ni clave de API; por eso la probabilidad actual es baja y el impacto potencial sería alto. Tratamiento: evitar ese riesgo manteniendo fuera la integración opcional. Si el alcance cambiara, la clave iría fuera del repositorio y cada salida se validaría como entrada no confiable. Responsable: quien proponga la integración.
+
+### Política breve de uso de IA
+
+La versión actual no incorpora IA como función del juego. Si el grupo usa IA como apoyo para estudiar o escribir código, no comparte claves, credenciales ni datos personales; cada integrante revisa y entiende el código que entrega; los cambios se prueban y reciben revisión de otro integrante; y se declara el uso cuando lo pidan la consigna o las reglas de la materia. La responsabilidad por el código entregado sigue siendo del grupo.
+
+### Meta, KPIs y KRI
+
+**Meta:** entregar un juego que cumpla los requisitos obligatorios y cuya corrección pueda verificarse.
+
+- **Cobertura de requisitos con pruebas:** requisitos obligatorios con al menos una prueba significativa aprobada / total de requisitos obligatorios × 100. Fuente: relación entre la consigna y `tests/test_nucleo.py`. Responsable propuesto: quien mantiene las pruebas. La prueba debe comprobar el comportamiento esperado y poder detectar una falla relevante.
+- **Éxito de la suite:** pruebas aprobadas / pruebas ejecutadas × 100. Fuente: salida de `python -m unittest -v`. En la verificación de esta revisión, el resultado fue 37/37. Responsable: quien integra la versión final.
+- **Revisión de cambios del núcleo:** cambios en reglas revisados por otro integrante y con la suite ejecutada / total de cambios en reglas × 100. Fuente: revisiones del repositorio y salida de tests. Responsable: quien integra; la revisión no se cuenta como válida si solo aprueba sin examinar la lógica.
+
+**KRI:** cantidad de requisitos obligatorios que fallan o no tienen una prueba significativa. La alerta es cualquier valor mayor que cero en la verificación final; ante esa señal se dejan las ampliaciones opcionales para después y se corrige el núcleo.
+
+Para evitar la ley de Goodhart, no se fija una meta de cantidad de tests. Se revisa que cada test corresponda a un requisito y verifique un resultado observable. Tampoco se toma la aprobación de una revisión como evidencia suficiente si no hubo lectura del cambio.
+
+### Controles que no se agregan al producto
+
+El ejemplo de IA de la Unidad 5 muestra un adaptador que propone una jugada y deja la validación al núcleo. Ese principio coincide con la arquitectura del proyecto, pero el ejemplo está en C# y usa una API externa; no se incorpora a esta implementación Python porque la IA es opcional y no mejora el cumplimiento del alcance obligatorio. El ejemplo de integridad en Java ilustra hashes y registros HMAC encadenados; el juego no necesita persistencia de auditoría ni protección criptográfica. Se aplican sus prácticas proporcionales —historial de cambios, revisión, tests y no ocultar defectos— sin sumar infraestructura de producción.
+
 ## Defecto corregido
 
 Antes de la corrección, Partida.movimientos_legales podía incluir una casilla ocupada por el rey rival. Partida.mover aceptaba esa captura y quitaba al rey del tablero, lo que rompía el modelo de jaque y jaque mate.

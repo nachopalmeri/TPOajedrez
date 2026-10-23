@@ -16,7 +16,7 @@ La consigna pide:
 - Turnos alternados, capturas, rechazo de movimientos inválidos y detección de jaque.
 - Núcleo independiente de frameworks e infraestructura, pruebas unitarias que puedan ejecutarse sin servicios externos y un UML coherente con la implementación.
 - Una justificación breve que explique qué decisión se tomó, por qué y en qué situación podría dejar de convenir.
-- Presentación grupal y defensa individual. El grupo debe tener entre 3 y 5 integrantes.
+- Presentación grupal y defensa individual. La consigna indica un grupo de 3 a 5 integrantes. El grupo informa que el profesor autorizó una excepción para seis. La nómina completa se conserva en la copia local de entrega y se omite de esta copia pública.
 
 La consigna enumera como opcionales el jaque mate, el enroque, la captura al paso, la promoción, las tablas, la IA, deshacer/rehacer y una interfaz gráfica más allá de la consola mínima. El proyecto incluye jaque mate, pero no declara implementadas las demás extensiones.
 
@@ -36,7 +36,7 @@ El material de la cursada también explica simular una jugada para verificar si 
 
 ## Unidades 5 y 6: riesgos, métricas e integridad
 
-Las presentaciones de Gobernanza de IT (Unidad 5, diapositivas 19 y 21–22) y Auditoría, métricas, KPIs, ética e integridad (Unidad 6, diapositivas 13 y 24–25) proponen ejercicios aplicados al TPO. El alcance de esta sección es responderlos para la defensa; no agrega requisitos funcionales al juego.
+La presentación de Gobernanza de IT (Unidad 5, diapositivas 19 y 21–22) incluye ejercicios de riesgos. La PPT de Auditoría, métricas, KPIs, ética e integridad (Unidad 6, diapositivas 12–13 y 24–25) incluye el ejercicio de meta, preguntas, tres KPIs, responsable, datos, riesgo de manipulación y control. La nota de Clase 11 (22 de octubre) identifica esa PPT como prelectura para la sesión siguiente; por eso este cruce prepara la actividad y no atribuye su explicación a la clase del 22. El alcance responde el material asociado al TPO y no agrega requisitos funcionales al juego.
 
 ### Registro inicial de riesgos
 
@@ -52,17 +52,21 @@ Las probabilidades e impactos son estimaciones cualitativas para priorizar el tr
 
 La versión actual no incorpora IA como función del juego. Si el grupo usa IA como apoyo para estudiar o escribir código, no comparte claves, credenciales ni datos personales; cada integrante revisa y entiende el código que entrega; los cambios se prueban y reciben revisión de otro integrante; y se declara el uso cuando lo pidan la consigna o las reglas de la materia. La responsabilidad por el código entregado sigue siendo del grupo.
 
-### Meta, KPIs y KRI
+### Meta, preguntas, KPIs y KRI
 
-**Meta:** entregar un juego que cumpla los requisitos obligatorios y cuya corrección pueda verificarse.
+**Meta propuesta:** entregar un juego que cumpla los requisitos obligatorios y cuya corrección pueda verificarse.
 
-- **Cobertura de requisitos con pruebas:** requisitos obligatorios con al menos una prueba significativa aprobada / total de requisitos obligatorios × 100. Fuente: relación entre la consigna y `tests/test_nucleo.py`. Responsable propuesto: quien mantiene las pruebas. La prueba debe comprobar el comportamiento esperado y poder detectar una falla relevante.
-- **Éxito de la suite:** pruebas aprobadas / pruebas ejecutadas × 100. Fuente: salida de `python -m unittest -v`. En la verificación de esta revisión, el resultado fue 37/37. Responsable: quien integra la versión final.
-- **Revisión de cambios del núcleo:** cambios en reglas revisados por otro integrante y con la suite ejecutada / total de cambios en reglas × 100. Fuente: revisiones del repositorio y salida de tests. Responsable: quien integra; la revisión no se cuenta como válida si solo aprueba sin examinar la lógica.
+**Preguntas de medición:** ¿cada requisito obligatorio tiene una prueba significativa? ¿La suite detecta regresiones? ¿Los cambios del núcleo se revisan?
 
-**KRI:** cantidad de requisitos obligatorios que fallan o no tienen una prueba significativa. La alerta es cualquier valor mayor que cero en la verificación final; ante esa señal se dejan las ampliaciones opcionales para después y se corrige el núcleo.
+- **Cobertura de requisitos con pruebas:** requisitos obligatorios con al menos una prueba significativa aprobada / total de requisitos obligatorios × 100. Fuente: consigna y [relación requisito–test](trazabilidad-pruebas.md). Responsable propuesto: quien mantiene las pruebas. Meta propuesta: 100% antes de entregar. Para que una prueba cuente, debe comprobar el comportamiento esperado y detectar una falla relevante.
+- **Éxito de la suite:** pruebas aprobadas / pruebas ejecutadas × 100. Fuente: salida de `python -m unittest -v`. Última verificación: 37/37. Responsable propuesto: quien integra. Meta propuesta: 100% en cada integración y antes de entregar.
+- **Revisión de cambios del núcleo:** cambios en reglas revisados por otro integrante y con la suite ejecutada / total de cambios en reglas × 100. Fuente: cambios del repositorio y salida de tests. Responsable propuesto: integrador y par revisor. Meta propuesta: 100% en cada integración.
 
-Para evitar la ley de Goodhart, no se fija una meta de cantidad de tests. Se revisa que cada test corresponda a un requisito y verifique un resultado observable. Tampoco se toma la aprobación de una revisión como evidencia suficiente si no hubo lectura del cambio.
+**Riesgo de manipulación y control:** una meta de cobertura puede incentivar tests vacíos o sin aserciones; se revisa qué comportamiento detectaría cada prueba. La tasa de éxito puede mejorarse borrando un test que falla; se conservan las pruebas de regresión y se revisan sus cambios. La tasa de revisión puede subir con aprobaciones sin lectura; quien revisa explica qué regla examinó y verifica la prueba. No se fija una cantidad objetivo de tests; se evalúa su vínculo con requisitos y resultados observables, en línea con la discusión de Goodhart de la Unidad 6.
+
+**KRI:** cantidad de requisitos obligatorios que fallan o no tienen una prueba significativa. La alerta es cualquier valor mayor que cero en la verificación final; se pausan ampliaciones y se corrige el núcleo.
+
+Las responsabilidades, metas y frecuencias anteriores son una propuesta para el grupo; no son resultados de una auditoría ni una medición histórica. La presentación tiene un registro de riesgos y una diapositiva separada con este ejercicio de medición.
 
 ### Controles que no se agregan al producto
 
@@ -98,4 +102,4 @@ La revisión usó la consigna oficial, las presentaciones y notas disponibles, e
 
 ## Límites de la copia pública
 
-El repositorio omite nombres personales, correos, número de grupo, rutas locales de Windows, archivos de la materia, grabaciones, transcripciones y código bonus provisto por la cátedra. La consigna exige identificar al grupo en el contexto de entrega; agreguen la nómina real en una copia privada después de confirmarla con todos sus integrantes. No se publican nombres en esta copia.
+El grupo informa que el profesor autorizó seis integrantes; la nómina completa se conserva sólo en la copia local de entrega. Esta copia pública omite datos personales, correos, rutas locales de Windows, archivos de la materia, grabaciones, transcripciones y código bonus provisto por la cátedra.

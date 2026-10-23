@@ -19,6 +19,7 @@ La suite contiene 37 pruebas sobre movimientos, caminos bloqueados, turnos, capt
 - docs/diagrama_clases.svg: vista UML generada desde una definición de clases y relaciones mantenida en `docs/generar_uml.py` y revisada contra el código.
 - docs/decisiones-de-diseno.docx: justificación de decisiones.
 - docs/alineacion-con-la-cursada.md: contraste con la consigna y el material de clase.
+- docs/trazabilidad-pruebas.md: pruebas representativas por requisito obligatorio.
 - docs/presentacion-tpo.pptx: presentación del proyecto.
 
 ## Alcance
@@ -33,4 +34,4 @@ El diseño aplica separación entre núcleo y adaptadores, dirección de depende
 
 ## Copia pública
 
-Esta copia no incluye nombres personales, número de grupo, grabaciones privadas, transcripciones ni archivos de diapositivas de la cátedra. Si se usa para entregar, el grupo puede incorporar sus datos reales en una copia privada, de acuerdo con el requisito de 3 a 5 integrantes.
+Según confirmó el grupo, el profesor autorizó seis integrantes. La nómina se incluye únicamente en la copia local de entrega. Esta copia pública no incluye datos personales, correos, rutas locales, grabaciones, transcripciones ni diapositivas de la cátedra.
